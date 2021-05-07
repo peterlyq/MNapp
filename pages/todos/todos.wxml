@@ -1,0 +1,8 @@
+<!--pages/todos/todos.wxml-->
+
+<view>
+  <block>
+    <text>pages/todos/todos.wxml</text>
+    <image src="{{'/static/icon/'+image}}"></image>
+  </block>
+</view>
