@@ -1,14 +1,18 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <button wx:if="{{!userInfo.avatarUrl}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image catchtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-nickname">{{userInfo.gender==1?"男":"女"}}</text>
     </block>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
     <navigator url="../home/home">跳到home</navigator>
+    <text >bindtap不会阻止事件冒泡</text>
+    <text >catchtap会阻止事件冒泡</text>
+  <button id="location" bindtap="show" type="primary" bindtap="getLocation">获取定位</button>
   </view>
 </view>

@@ -1,4 +1,4 @@
-//app.js
+//app.js 用于注册整个小程序应用
 App({
   onLaunch: function () {
     // 展示本地存储能力

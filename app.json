@@ -1,16 +1,37 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/todos/todos",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/home/home",
+    "pages/logs/logs",
+    "pages/position/position"
   ],
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#f40",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "entryPagePath": "pages/home/home",
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true                                                                                                                    
+    "navigationBarBackgroundColor": "#dec",
+    "navigationBarTitleText": "元权小店",
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

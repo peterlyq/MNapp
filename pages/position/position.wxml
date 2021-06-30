@@ -11,26 +11,21 @@
     <input class="search-input" bindinput="getsuggest" placeholder="请输入您的店铺地址"></input>
   </view>
   </view>
-  <!-- <map id="map" longitude="{{longitude}}" 
+  <map id="map" 
+  longitude="{{longitude}}" 
   latitude="{{latitude}}"
-  scale="{{scale}}" bindcontroltap="controltap" markers="{{markers}}"  polyline="{{polyline}}" 
+  scale="{{scale}}" 
   enable-rotate 
   enable-3D 
-  enable-zoom
   show-location
-  bindtap="choosePosition" 
-  bindregionchange="regionchange"
-  bindcallouttap="touchMark" 
-  bindmarkertap="markertap">
-  <cover-view class="tips-box">
-    <cover-view class="tips-mid">
+  >
+    <view class="tips-mid">
       <cover-image class="tips-daohang" src="/static/icon/daohang.png"></cover-image>
-    </cover-view>
-    <cover-view class="tips-area">
-      <cover-image bindtap="toMyPosition"  class="tips-location" src="/static/icon/dingwei.png"></cover-image>
-    </cover-view>
-  </cover-view>
-  </map> -->
+    </view>
+    <view class="tips-area" bindtap="toMyPosition">
+      <cover-image class="tips-location" src="/static/icon/dingwei.png"></cover-image>
+    </view>
+  </map>
   <view class="address-list">
     <scroll-view class="near-list" scroll-y>
   <!--绑定回填事件-->
@@ -48,5 +43,4 @@
     </scroll-view>
   </view>
   <button class="location" bindtap="show" type="primary" bindtap="getLocation">获取定位</button>
-  <button class="location" type="primary" bindtap="toPosition">选择位置</button>
 </view>

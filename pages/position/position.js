@@ -37,7 +37,7 @@ Page({
       color:"#f40",
       width: 5,
     }],
-    scale:14,
+    scale:16,
     selectedId:1,
 
     //附近的地址
@@ -80,7 +80,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.toMyPosition();
+    this.toMyPosition();
   },
 
   /**
@@ -209,7 +209,6 @@ Page({
     //  })
     wx.chooseLocation({
       success:(res)=>{
-        console.log(res)
         const latitude = res.latitude
         const longitude = res.longitude
         let mpCtx = wx.createMapContext("map");
@@ -221,7 +220,6 @@ Page({
           latitude,
           longitude,
           success:(res)=>{
-            console.log(res)
            
           }
         });
@@ -232,16 +230,9 @@ Page({
     let mpCtx = wx.createMapContext("map");
     mpCtx.moveToLocation();
   },
-  toPosition(){
-    wx.navigateTo({
-      url: '/pages/position/position'
-    })
-  },
   // 选中区域列表
   chooseCenter(e){
-    console.log(e)
     let selectedId = e.currentTarget.id;
-    console.log(selectedId)
     this.setData({
       selectedId
     })

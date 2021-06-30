@@ -1,5 +1,5 @@
 {
-  "desc": "关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
+  "desc": "用于配置小程序曝光率【默认全部允许，disallow表示不允许】通过爬虫的方式,关于本文件的更多信息，请参考文档 https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html",
   "rules": [{
   "action": "allow",
   "page": "*"
