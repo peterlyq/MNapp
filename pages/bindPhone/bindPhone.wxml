@@ -1,0 +1,12 @@
+<view id="bind-phone">
+  <view class="list-item">
+    <label for="number">手机号:</label>
+    <input class="item-input" type="text" placeholder="请输入手机号" id="number"/>
+  </view>
+  <view class="list-item">
+    <label for="verifyCode">验证码:</label>
+    <input class="item-input" type="text" placeholder="请输入验证码" id="verifyCode"/>
+    <button class="btn-blue" id="get-code">发送验证码</button>
+  </view>
+  <button class="btn-blue" id="binding">绑定</button>
+</view>

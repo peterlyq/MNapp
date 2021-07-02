@@ -1,0 +1,29 @@
+/* pages/user/user.wxss */
+.user-box{
+  width: 100%;
+  height: 100%;
+  background-color: #eeeeee;
+}
+.user-header{
+  height: 20%;
+  display: flex;
+  align-items: center;
+  padding: 0 80rpx;
+}
+.user-header .avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  margin-right: 40rpx;
+  border: 2rpx solid #000000;
+}
+.user-header .user-info{
+  padding: 25rpx 0;
+  height: 100rpx;
+  line-height: 50rpx;
+}
+
+.body-item{
+  background-color: white;
+  border-bottom: 1rpx solid #dddddd;
+}

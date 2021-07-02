@@ -1,0 +1,34 @@
+/* pages/bindPhone/bindPhone.wxss */
+/*按钮样式*/
+.btn-blue{
+  background-color: #169BD5;
+  color: white;
+}
+/*内容*/
+#bind-phone{
+  padding: 0 40rpx;
+}
+.list-item{
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 2rpx solid #555555;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+}
+.item-input{
+  line-height: 80rpx;
+  height: 80rpx;
+  padding: 0 20rpx;
+  width: 50%;
+}
+#get-code{
+  font-size: 24rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  width: 160rpx;
+  padding: 0;
+}
+#binding{
+  margin-top: 20rpx;
+}

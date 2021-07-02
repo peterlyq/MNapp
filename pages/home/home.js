@@ -1,4 +1,5 @@
 // pages/home/home.js
+import {reqGet,reqPost} from "../../utils/request"
 Page({
 
   /**
@@ -81,6 +82,15 @@ Page({
    */
   onLoad: function (options) {
     // this.toMyPosition();
+    // let token = wx.getStorageSync('user_token')
+    // if(!token){
+    //   wx.redirectTo({
+    //     url: '/pages/logs/logs',
+    //   })
+    // }
+    // reqGet("/main",{data:"123"},(res)=>{
+    //   console.log(res)
+    // },false)
   },
 
   /**
@@ -234,7 +244,29 @@ Page({
   },
   toPosition(){
     wx.navigateTo({
-      url: '/pages/position/position'
+      url: '/pages/position/position?id=1',
+      success:(res)=>{
+        res.eventChannel.emit("transferParams",{
+          id:1,
+          name:"庄三"
+        })
+      }
+    })
+  },
+  toBindPhone(){
+    wx.navigateTo({
+      url: '/pages/bindPhone/bindPhone?id=1',
+      success:(res)=>{
+       
+      }
+    })
+  },
+  toUser(){
+    wx.navigateTo({
+      url: '/pages/user/user?id=1',
+      success:(res)=>{
+       
+      }
     })
   },
   // 选中区域列表

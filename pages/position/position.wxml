@@ -11,21 +11,23 @@
     <input class="search-input" bindinput="getsuggest" placeholder="请输入您的店铺地址"></input>
   </view>
   </view>
+
+<view class="mapBox">
   <map id="map" 
   longitude="{{longitude}}" 
   latitude="{{latitude}}"
   scale="{{scale}}" 
-  enable-rotate 
-  enable-3D 
-  show-location
+  setting="{{setting}}"
+  markers="{{markers}}"
   >
-    <view class="tips-mid">
+  </map>
+  <view class="tips-mid">
       <cover-image class="tips-daohang" src="/static/icon/daohang.png"></cover-image>
     </view>
-    <view class="tips-area" bindtap="toMyPosition">
-      <cover-image class="tips-location" src="/static/icon/dingwei.png"></cover-image>
+    <view bindtap="toMyPosition" class="tips-area">
+      <cover-image   class="tips-location" src="/static/icon/dingwei.png"></cover-image>
     </view>
-  </map>
+</view>
   <view class="address-list">
     <scroll-view class="near-list" scroll-y>
   <!--绑定回填事件-->

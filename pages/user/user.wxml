@@ -1,0 +1,16 @@
+<!--pages/user/user.wxml-->
+<view class="user-box">
+  <view class="user-header">
+    <image class="avatar" src="https://img2.baidu.com/it/u=1077360284,2857506492&fm=26&fmt=auto&gp=0.jpg"></image>
+    <view class="user-info">
+      <view class="user-name">高飞</view>
+      <view class="user-role">调度员</view>
+    </view>
+  </view>
+  <view class="view-body">
+    <mp-cell ext-class="body-item" link url="../waybillList/waybillList" value="运单列表" >
+    </mp-cell>
+    <mp-cell ext-class="body-item" link url="../bindPhone/bindPhone" value="系统设置" >
+    </mp-cell>
+  </view>
+</view>

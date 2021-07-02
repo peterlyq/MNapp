@@ -49,4 +49,6 @@
   </view>
   <button class="location" bindtap="show" type="primary" bindtap="getLocation">获取定位</button>
   <button class="location" type="primary" bindtap="toPosition">选择位置</button>
+  <button class="location" type="primary" bindtap="toBindPhone">绑定手机</button>
+  <button class="location" type="primary" bindtap="toUser">用户中心</button>
 </view>

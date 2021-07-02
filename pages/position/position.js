@@ -7,7 +7,7 @@ Page({
   data: {
     mes:'理综',
     longitude: 100.324520,
-    latitude: 23.21229,
+    latitude: 24.21229,
     accuracy:"",
     speed:"",
     markers: [{
@@ -15,15 +15,24 @@ Page({
       id: 0,
       latitude: 39.02113552517361,
       longitude: 117.70715901692708,
-      width: 50,
-      height: 50
+      width: 30,
+      height: 30,
+      callout:{
+        content:"标记一",
+        color:"red",
+        fontSize:13,
+        borderRadius:5,
+        borderColor:"red",
+        padding:20,
+        display:"BYCLICK" 
+      }
     },{
       iconPath: "../../static/icon/anquan.png",
       id: 1,
       latitude: 35.099994,
       longitude: 113.324520,
-      width: 50,
-      height: 50
+      width: 30,
+      height: 30
     }],
     //路线图
     polyline: [{
@@ -37,7 +46,7 @@ Page({
       color:"#f40",
       width: 5,
     }],
-    scale:16,
+    scale:17,
     selectedId:1,
 
     //附近的地址
@@ -74,20 +83,53 @@ Page({
     //   },
     //   clickable: true
     // }]
+    setting:{
+      enableRotate:true, 
+      enable3D:true, 
+      showLocation:true,
+      skew:40,
+      // rotate: 0, 
+      // showLocation: true,
+      // showScale: false,
+      // subKey: '',
+      // layerStyle: 1,
+      // enableZoom: true,
+      // enableScroll: true,
+      // enableRotate: false,
+      // showCompass: false,
+      // enable3D: false,
+      // enableOverlooking: false,
+      // enableSatellite: false,
+      // enableTraffic: false,
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.toMyPosition();
+    if(options){
+    console.log(options.id)
+    }
+    // let eventChannel = this.getOpenerEventChannel();
+    // eventChannel.on("transferParams",(arg)=>{
+    //   console.log(arg)
+    // })
+        wx.getLocation({
+          type: 'gcj02',
+          success:  (res)=> {
+            this.setData({
+              latitude: res.latitude,
+              longitude: res.longitude,
+            })
+          },
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -168,67 +210,78 @@ Page({
   },
   //获取定位
   getLocation(){
-    // wx.getLocation({
-    //   type: 'gcj02',
-    //   success: (res)=> {
-    //     const latitude = res.latitude
-    //     const longitude = res.longitude
-    //     const speed = res.speed
-    //     const accuracy = res.accuracy
-    //     let obj = this.data.markers[1]
-    //     obj.latitude = latitude;
-    //     obj.longitude = longitude;
-    //     let markers = this.data.markers;
-    //     markers.splice(1,1,obj)
-    //     this.setData({
-    //       latitude,
-    //       longitude,
-    //       speed,
-    //       accuracy,
-    //       markers
-    //     })
-
-    //     let obj1 = {
-    //       points: [{
-    //           longitude: longitude,
-    //           latitude: latitude
-    //         },{
-    //         longitude: 113.3245211,
-    //         latitude: 35.10229
-    //       }],
-    //       color:"#0099FF",
-    //       width: 5,
-    //     }
-    //     let polyline = this.data.polyline
-    //     polyline.push(obj1)
-    //     this.setData({
-    //       polyline
-    //     })
-       
-    //   }
-    //  })
-    wx.chooseLocation({
-      success:(res)=>{
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res)=> {
         const latitude = res.latitude
         const longitude = res.longitude
-        let mpCtx = wx.createMapContext("map");
+        const speed = res.speed
+        const accuracy = res.accuracy
+        let obj = this.data.markers[1]
+        obj.latitude = latitude;
+        obj.longitude = longitude;
+        let markers = this.data.markers;
+        markers.splice(1,1,obj)
         this.setData({
-          longitude,
-          latitude
-        })
-        mpCtx.moveToLocation({
           latitude,
           longitude,
-          success:(res)=>{
-           
-          }
-        });
+          speed,
+          accuracy,
+          markers
+        })
+
+        let obj1 = {
+          points: [{
+              longitude: longitude,
+              latitude: latitude
+            },{
+            longitude: 113.3245211,
+            latitude: 35.10229
+          }],
+          color:"#0099FF",
+          width: 5,
+        }
+        let polyline = this.data.polyline
+        polyline.push(obj1)
+        this.setData({
+          polyline
+        })
+       
       }
-    })
+     })
+     this.toMyPosition();
+    // wx.chooseLocation({
+    //   success:(res)=>{
+    //     const latitude = res.latitude
+    //     const longitude = res.longitude
+    //     let mpCtx = wx.createMapContext("map");
+    //     this.setData({
+    //       longitude,
+    //       latitude
+    //     })
+    //     mpCtx.moveToLocation({
+    //       latitude,
+    //       longitude,
+    //       success:(res)=>{
+           
+    //       }
+    //     });
+    //   }
+    // })
   },
-  toMyPosition(e){
+  toMyPosition(){
+    console.log(1)
     let mpCtx = wx.createMapContext("map");
     mpCtx.moveToLocation();
+    wx.getLocation({
+          type: 'gcj02',
+          success: (res)=> {
+            this.setData({
+              latitude: res.latitude,
+              longitude: res.longitude,
+            })
+          },
+    })
   },
   // 选中区域列表
   chooseCenter(e){
